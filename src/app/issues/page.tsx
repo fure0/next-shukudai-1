@@ -1,11 +1,21 @@
 import { fetchIssues } from '@/lib/github';
 import IssueItem from '@/components/IssueItem';
+import Link from 'next/link';
 
 export default async function IssuesPage() {
   const issues = await fetchIssues();
 
   return (
     <div className="container mx-auto px-4 py-8">
+      <div className="mb-6">
+        <Link 
+          href="/"
+          className="text-blue-500 dark:text-blue-400 hover:underline mb-4 inline-block"
+        >
+          ← Back to Dashboard
+        </Link>
+      </div>
+
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Issues</h1>
         <div className="text-sm text-gray-500 dark:text-gray-400">

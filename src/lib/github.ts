@@ -16,6 +16,8 @@ export async function fetchIssues(): Promise<GitHubIssue[]> {
       state: 'all',
       per_page: 100,
     });
+
+    console.log(response.data);
     
     return response.data
       .filter(issue => !('pull_request' in issue))
@@ -52,6 +54,7 @@ export async function fetchPullRequests(): Promise<GitHubPullRequest[]> {
       per_page: 100,
     });
     
+    console.log(response.data);
     return response.data.map(pr => ({
       id: pr.id,
       number: pr.number,
